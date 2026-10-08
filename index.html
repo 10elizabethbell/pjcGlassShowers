@@ -7,6 +7,12 @@
 <meta name="description" content="PJC Glass & Showers: window repair, fogged insulated units, balance repair, screen repair, shower enclosures and commercial door repair. Residential and commercial, entire complexes. Call 732-579-7813.">
 <meta name="theme-color" content="#18222d">
 <meta property="og:title" content="PJC Glass & Showers">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://raw.githubusercontent.com/10elizabethbell/pjcGlassShowers/main/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="icon" href="assets/apple-touch-icon.png">
 <meta property="og:description" content="Window repair, fogged insulated units, balance & screen repair, shower enclosures, commercial doors. Call 732-579-7813.">
 <style>
   /* ---------- Tokens ---------- */
@@ -68,10 +74,11 @@
   .on-glass .btn-line { color: var(--ink); border-color: var(--ink); }
   .on-glass .btn-line:hover { background: rgba(20, 32, 41, .06); }
   .num { font-variant-numeric: tabular-nums; }
+  .wide { display: none; }
 
   /* ---------- Top bar ---------- */
   .top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 12px; }
-  .top .logo { height: 46px; width: auto; border-radius: 6px; }
+  .top .logo { height: 56px; width: auto; border-radius: 6px; }
   .top a.call {
     display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px;
     border-radius: 999px; background: var(--slate-3); color: var(--white);
@@ -177,6 +184,7 @@
   /* ---------- Footer ---------- */
   footer { padding: 28px 0 32px; color: var(--mist); font-size: 15px; }
   footer strong { color: var(--white); }
+  footer .num { white-space: nowrap; }
   footer .demo { margin-top: 10px; font-size: 14px; opacity: .85; }
 
   /* ---------- Sticky action bar (phones) ---------- */
@@ -198,6 +206,8 @@
     .sticky { display: none; }
     .top { padding-top: 20px; }
     .top .logo { height: 58px; }
+    .wide { display: inline; }
+    .narrow { display: none; }
     .actions { grid-template-columns: auto auto; justify-content: start; }
     .list { display: grid; grid-template-columns: 1fr 1fr; column-gap: 48px; }
     .who-rows { grid-template-columns: repeat(3, 1fr); gap: 32px; }
@@ -242,7 +252,7 @@
     <div class="hero-grid">
       <div>
         <h1>Clear glass. <span class="red">Working windows.</span></h1>
-        <p class="pitch">Window &amp; screen repair, <strong>fogged insulated units</strong>, balance repair, shower enclosures and commercial doors. Homes, businesses, entire complexes across New Jersey.</p>
+        <p class="pitch">Window &amp; screen repair, <strong>fogged insulated units</strong>, balance repair, shower enclosures and commercial doors. Homes, businesses, entire complexes in New Jersey.</p>
         <div class="actions" id="hero-actions">
           <a class="btn btn-red" href="tel:+17325797813">
             <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
@@ -250,7 +260,7 @@
           </a>
           <a class="btn btn-line" href="sms:+17325797813" data-sms="">
             <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>
-            Text a photo
+            <span>Text <span class="narrow">a photo</span><span class="wide num">732-579-7813</span></span>
           </a>
         </div>
       </div>
@@ -276,7 +286,7 @@
     <div class="wrap">
       <div class="sec-head">
         <h2 id="services-h">What PJC fixes</h2>
-        <p>Tap the one you need and a text opens with it already filled in. Add a photo and your town.</p>
+        <p id="services-how">Tap the one you need and a text opens with it already filled in. Add a photo and your town.</p>
       </div>
       <ul class="list">
         <li><a href="sms:+17325797813" data-sms="window repair">
@@ -325,11 +335,11 @@
         </div>
         <div class="who-row">
           <h3>Businesses</h3>
-          <p>Commercial doors and storefront glass, fixed so you can lock up tonight.</p>
+          <p>Commercial doors and storefront glass that close and lock again.</p>
         </div>
         <div class="who-row">
           <h3>Entire complexes</h3>
-          <p><span class="quote">“Service Entire Complex”</span> is on PJC's own flyer. Property managers: one number for every unit's windows.</p>
+          <p><span class="quote">Service entire complexes.</span> Property managers: one number for every unit's windows.</p>
         </div>
       </div>
     </div>
@@ -340,7 +350,7 @@
       <h2 id="how-h">How it works</h2>
       <ol class="steps">
         <li><div><h3>Call or text</h3><p>Say what's wrong and where. A photo of the glass or the frame helps.</p></div></li>
-        <li><div><h3>Get a quote</h3><p>PJC tells you what it needs and what it costs before any work starts.</p></div></li>
+        <li><div><h3>Get a quote</h3><p>Tell PJC what's wrong and get a price.</p></div></li>
         <li><div><h3>See clearly</h3><p>The glass is fixed, the window works, the door locks.</p></div></li>
       </ol>
     </div>
@@ -405,12 +415,21 @@
 <script>
   // ---------- Contact wiring: every [data-sms] link opens a pre-filled text ----------
   (function () {
+    // Flip to false if the number turns out to be a landline: every text link
+    // becomes a call link and the services intro changes to match.
+    var TEXTS_OK = true;
     var PHONE = '+17325797813';
+    if (!TEXTS_OK) {
+      document.querySelectorAll('a[data-sms]').forEach(function (a) { a.href = 'tel:' + PHONE; });
+      var how = document.getElementById('services-how');
+      if (how) how.textContent = 'Tap the one you need to call about it.';
+      return;
+    }
     var NAME = 'PJC Glass & Showers';
     document.querySelectorAll('a[data-sms]').forEach(function (a) {
       var what = a.getAttribute('data-sms');
       var body = 'Hi ' + NAME + '! I\'d like a quote' + (what ? ' for ' + what : '') + '.\n' +
-                 'What needs fixing: \nTown: \n(Photo attached)';
+                 'What needs fixing: \nTown: \nPhoto: (attach one if you can)';
       a.href = 'sms:' + PHONE + '?&body=' + encodeURIComponent(body);
     });
   })();
