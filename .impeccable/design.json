@@ -1,0 +1,437 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-08T17:58:00.956241+00:00",
+  "title": "Design System: PJC Glass & Showers",
+  "extensions": {
+    "colorMeta": {
+      "logo-red": {
+        "role": "primary",
+        "displayName": "Logo Red",
+        "canonical": "#e2231a",
+        "tonalRamp": [
+          "oklch(15% 0.223 29.1)",
+          "oklch(26% 0.223 29.1)",
+          "oklch(38% 0.223 29.1)",
+          "oklch(49% 0.223 29.1)",
+          "oklch(61% 0.223 29.1)",
+          "oklch(72% 0.223 29.1)",
+          "oklch(84% 0.223 29.1)",
+          "oklch(95% 0.223 29.1)"
+        ]
+      },
+      "logo-red-deep": {
+        "role": "primary",
+        "displayName": "Deep Logo Red",
+        "canonical": "#b5150e",
+        "tonalRamp": [
+          "oklch(15% 0.192 29.2)",
+          "oklch(26% 0.192 29.2)",
+          "oklch(38% 0.192 29.2)",
+          "oklch(49% 0.192 29.2)",
+          "oklch(61% 0.192 29.2)",
+          "oklch(72% 0.192 29.2)",
+          "oklch(84% 0.192 29.2)",
+          "oklch(95% 0.192 29.2)"
+        ]
+      },
+      "slate": {
+        "role": "neutral",
+        "displayName": "Slate",
+        "canonical": "#18222d",
+        "tonalRamp": [
+          "oklch(15% 0.025 251.2)",
+          "oklch(26% 0.025 251.2)",
+          "oklch(38% 0.025 251.2)",
+          "oklch(49% 0.025 251.2)",
+          "oklch(61% 0.025 251.2)",
+          "oklch(72% 0.025 251.2)",
+          "oklch(84% 0.025 251.2)",
+          "oklch(95% 0.025 251.2)"
+        ]
+      },
+      "slate-2": {
+        "role": "neutral",
+        "displayName": "Slate 2",
+        "canonical": "#1f2c39",
+        "tonalRamp": [
+          "oklch(15% 0.030 248.9)",
+          "oklch(26% 0.030 248.9)",
+          "oklch(38% 0.030 248.9)",
+          "oklch(49% 0.030 248.9)",
+          "oklch(61% 0.030 248.9)",
+          "oklch(72% 0.030 248.9)",
+          "oklch(84% 0.030 248.9)",
+          "oklch(95% 0.030 248.9)"
+        ]
+      },
+      "slate-3": {
+        "role": "neutral",
+        "displayName": "Slate 3",
+        "canonical": "#2a3a4a",
+        "tonalRamp": [
+          "oklch(15% 0.035 248.9)",
+          "oklch(26% 0.035 248.9)",
+          "oklch(38% 0.035 248.9)",
+          "oklch(49% 0.035 248.9)",
+          "oklch(61% 0.035 248.9)",
+          "oklch(72% 0.035 248.9)",
+          "oklch(84% 0.035 248.9)",
+          "oklch(95% 0.035 248.9)"
+        ]
+      },
+      "window-glass": {
+        "role": "neutral",
+        "displayName": "Window Glass",
+        "canonical": "#e8f0f3",
+        "tonalRamp": [
+          "oklch(15% 0.009 222.1)",
+          "oklch(26% 0.009 222.1)",
+          "oklch(38% 0.009 222.1)",
+          "oklch(49% 0.009 222.1)",
+          "oklch(61% 0.009 222.1)",
+          "oklch(72% 0.009 222.1)",
+          "oklch(84% 0.009 222.1)",
+          "oklch(95% 0.009 222.1)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#142029",
+        "tonalRamp": [
+          "oklch(15% 0.024 241.4)",
+          "oklch(26% 0.024 241.4)",
+          "oklch(38% 0.024 241.4)",
+          "oklch(49% 0.024 241.4)",
+          "oklch(61% 0.024 241.4)",
+          "oklch(72% 0.024 241.4)",
+          "oklch(84% 0.024 241.4)",
+          "oklch(95% 0.024 241.4)"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Ink Soft",
+        "canonical": "#3d5262",
+        "tonalRamp": [
+          "oklch(15% 0.037 241.5)",
+          "oklch(26% 0.037 241.5)",
+          "oklch(38% 0.037 241.5)",
+          "oklch(49% 0.037 241.5)",
+          "oklch(61% 0.037 241.5)",
+          "oklch(72% 0.037 241.5)",
+          "oklch(84% 0.037 241.5)",
+          "oklch(95% 0.037 241.5)"
+        ]
+      },
+      "mist": {
+        "role": "neutral",
+        "displayName": "Mist",
+        "canonical": "#c3d3dc",
+        "tonalRamp": [
+          "oklch(15% 0.021 232.2)",
+          "oklch(26% 0.021 232.2)",
+          "oklch(38% 0.021 232.2)",
+          "oklch(49% 0.021 232.2)",
+          "oklch(61% 0.021 232.2)",
+          "oklch(72% 0.021 232.2)",
+          "oklch(84% 0.021 232.2)",
+          "oklch(95% 0.021 232.2)"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "White",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "oklch(15% 0.000 89.9)",
+          "oklch(26% 0.000 89.9)",
+          "oklch(38% 0.000 89.9)",
+          "oklch(49% 0.000 89.9)",
+          "oklch(61% 0.000 89.9)",
+          "oklch(72% 0.000 89.9)",
+          "oklch(84% 0.000 89.9)",
+          "oklch(95% 0.000 89.9)"
+        ]
+      },
+      "sash-white": {
+        "role": "neutral",
+        "displayName": "Sash White",
+        "canonical": "#f3f6f7",
+        "tonalRamp": [
+          "oklch(15% 0.003 219.5)",
+          "oklch(26% 0.003 219.5)",
+          "oklch(38% 0.003 219.5)",
+          "oklch(49% 0.003 219.5)",
+          "oklch(61% 0.003 219.5)",
+          "oklch(72% 0.003 219.5)",
+          "oklch(84% 0.003 219.5)",
+          "oklch(95% 0.003 219.5)"
+        ]
+      },
+      "water-blue": {
+        "role": "tertiary",
+        "displayName": "Water Blue",
+        "canonical": "#7fb6dc",
+        "tonalRamp": [
+          "oklch(15% 0.080 239.3)",
+          "oklch(26% 0.080 239.3)",
+          "oklch(38% 0.080 239.3)",
+          "oklch(49% 0.080 239.3)",
+          "oklch(61% 0.080 239.3)",
+          "oklch(72% 0.080 239.3)",
+          "oklch(84% 0.080 239.3)",
+          "oklch(95% 0.080 239.3)"
+        ]
+      },
+      "water-pale": {
+        "role": "tertiary",
+        "displayName": "Water Pale",
+        "canonical": "#bfe0f0",
+        "tonalRamp": [
+          "oklch(15% 0.041 228.7)",
+          "oklch(26% 0.041 228.7)",
+          "oklch(38% 0.041 228.7)",
+          "oklch(49% 0.041 228.7)",
+          "oklch(61% 0.041 228.7)",
+          "oklch(72% 0.041 228.7)",
+          "oklch(84% 0.041 228.7)",
+          "oklch(95% 0.041 228.7)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headline only; 900 italic uppercase; clamp(3.4rem, 5.2vw, 4.8rem) at 1000px+."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings; 900 italic uppercase."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Service names, audience rows, step titles; 900 italic uppercase."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All paragraphs; pitch scales to clamp(17px, 4.6vw, 20px)."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Buttons and call pill; tabular numerals on phone numbers."
+      }
+    },
+    "shadows": [
+      {
+        "name": "pane-drop",
+        "value": "0 22px 44px -22px rgba(4,12,20,.8), 0 2px 0 rgba(0,0,0,.15)",
+        "purpose": "Window sitting in the wall; 2px line is the sill."
+      },
+      {
+        "name": "sash-bar",
+        "value": "0 3px 8px rgba(4,12,20,.25)",
+        "purpose": "Muntins casting onto the glass."
+      },
+      {
+        "name": "button-lift",
+        "value": "0 8px 18px -10px rgba(4,12,20,.55)",
+        "purpose": "Primary red button only."
+      },
+      {
+        "name": "disc-lift",
+        "value": "0 6px 14px -8px rgba(20,32,41,.5)",
+        "purpose": "Service cue disc."
+      },
+      {
+        "name": "step-lift",
+        "value": "0 8px 16px -10px rgba(4,12,20,.6)",
+        "purpose": "Step number discs."
+      },
+      {
+        "name": "bar-edge",
+        "value": "0 -10px 24px -14px rgba(4,12,20,.9)",
+        "purpose": "Sticky bar, cast upward."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ui-color",
+        "value": ".2s ease-out",
+        "purpose": "Button and cue colour changes, cue nudge."
+      },
+      {
+        "name": "press",
+        "value": "transform .15s ease-out, scale(.98)",
+        "purpose": "Button press."
+      },
+      {
+        "name": "bar-slide",
+        "value": ".35s cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "Sticky bar in/out (translateY(110%))."
+      },
+      {
+        "name": "hint-fade",
+        "value": "opacity .6s ease-out",
+        "purpose": "Wipe hint fades on first touch."
+      },
+      {
+        "name": "fog-regrow",
+        "value": "0.10 of full per second",
+        "purpose": "Fog creeping back over wiped glass."
+      },
+      {
+        "name": "ghost-wipe",
+        "value": "2.4s ease-in-out S-path after 9s idle",
+        "purpose": "Shows the glass is wipeable."
+      },
+      {
+        "name": "seam-swell",
+        "value": "shared slow swell + per-line ripple, SPEED 2",
+        "purpose": "Water seams between sections."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "still frame; hand wipe still works; transitions off",
+        "purpose": "prefers-reduced-motion: reduce."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "base",
+        "value": "0"
+      },
+      {
+        "name": "tablet",
+        "value": "760px"
+      },
+      {
+        "name": "desktop",
+        "value": "1000px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Call Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Primary action everywhere: solid logo red, always first in the pair.",
+      "html": "<a class=\"ds-btn ds-btn-red\" href=\"#\"><svg class=\"ds-i\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2\"/></svg>Call 732-579-7813</a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 22px;border-radius:10px;border:2px solid #e2231a;font:800 17px/1.1 var(--font, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif);letter-spacing:.01em;white-space:nowrap;text-decoration:none;transition:background-color .2s ease-out,color .2s ease-out,transform .15s ease-out;}.ds-btn:active{transform:scale(.98);}.ds-btn:focus-visible{outline:3px solid #e2231a;outline-offset:3px;}.ds-i{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;}.ds-btn-red{background:#e2231a;color:#fff;box-shadow:0 8px 18px -10px rgba(4,12,20,.55);}.ds-btn-red:hover{background:#b5150e;border-color:#b5150e;}"
+    },
+    {
+      "name": "Text Button",
+      "kind": "button",
+      "refersTo": "button-line",
+      "description": "Secondary action on slate: white outline; becomes ink on glass sections.",
+      "html": "<div style=\"background:#18222d;padding:16px;display:flex;gap:10px;flex-wrap:wrap\"><a class=\"ds-btn ds-btn-line\" href=\"#\"><svg class=\"ds-i\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 5h16v11H9l-5 4z\"/></svg>Text a photo</a></div><div style=\"background:#e8f0f3;padding:16px\"><a class=\"ds-btn ds-btn-line ds-on-glass\" href=\"#\"><svg class=\"ds-i\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 5h16v11H9l-5 4z\"/></svg>Text 732-579-7813</a></div>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 22px;border-radius:10px;border:2px solid #e2231a;font:800 17px/1.1 var(--font, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif);letter-spacing:.01em;white-space:nowrap;text-decoration:none;transition:background-color .2s ease-out,color .2s ease-out,transform .15s ease-out;}.ds-btn:active{transform:scale(.98);}.ds-btn:focus-visible{outline:3px solid #e2231a;outline-offset:3px;}.ds-i{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;}.ds-btn-line{background:transparent;color:#fff;border-color:rgba(255,255,255,.85);}.ds-btn-line:hover{background:rgba(255,255,255,.08);}.ds-btn-line.ds-on-glass{color:#142029;border-color:#142029;}.ds-btn-line.ds-on-glass:hover{background:rgba(20,32,41,.06);}"
+    },
+    {
+      "name": "Top Bar Call Pill",
+      "kind": "nav",
+      "refersTo": "call-pill",
+      "description": "Phone number pill opposite the logo in the top bar.",
+      "html": "<div style=\"background:#18222d;padding:12px 16px;display:flex;justify-content:space-between;align-items:center\"><span style=\"font:900 italic 22px/1 var(--font, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif);color:#e2231a;text-transform:uppercase\">PJC</span><a class=\"ds-call\" href=\"#\"><svg class=\"ds-i\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2\"/></svg><span>732-579-7813</span></a></div>",
+      "css": ".ds-i{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;}.ds-call{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border-radius:999px;background:#2a3a4a;color:#fff;font:800 15px/1 var(--font, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif);text-decoration:none;font-variant-numeric:tabular-nums;}.ds-call .ds-i{width:18px;height:18px;color:#e2231a;}.ds-call:focus-visible{outline:3px solid #e2231a;outline-offset:3px;}"
+    },
+    {
+      "name": "Service Row",
+      "kind": "custom",
+      "refersTo": "service-row-cue",
+      "description": "Ruled list row that opens a pre-filled text; arrow-in-circle cue fills red on press.",
+      "html": "<ul class=\"ds-list\"><li><a href=\"#\"><div><h3>Fogged Insulated Units</h3><p>Haze or moisture stuck between the two panes means the seal has failed.</p></div><span class=\"ds-go\"><svg class=\"ds-i\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 12h13m-5-5 5 5-5 5\"/></svg></span></a></li><li><a href=\"#\"><div><h3>Balance Repair</h3><p>Window won't stay up, slams down, or is too heavy to lift?</p></div><span class=\"ds-go\"><svg class=\"ds-i\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 12h13m-5-5 5 5-5 5\"/></svg></span></a></li></ul>",
+      "css": ".ds-i{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;}.ds-list{list-style:none;margin:0;padding:0 16px;background:#e8f0f3;border-top:2px solid #142029;font:400 17px/1.55 var(--font, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif);}.ds-list li{border-bottom:1px solid rgba(20,32,41,.18);}.ds-list a{display:grid;grid-template-columns:1fr 44px;gap:14px;align-items:center;padding:18px 0;text-decoration:none;color:#142029;}.ds-list h3{margin:0;font:900 italic 1.4rem/1.02 var(--font, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif);text-transform:uppercase;letter-spacing:-.02em;}.ds-list p{margin:6px 0 0;color:#3d5262;font-size:16px;}.ds-go{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#fff;color:#e2231a;box-shadow:0 6px 14px -8px rgba(20,32,41,.5);transition:background-color .2s ease-out,color .2s ease-out,transform .2s ease-out;}.ds-go .ds-i{width:20px;height:20px;}.ds-list a:hover .ds-go,.ds-list a:active .ds-go,.ds-list a:focus-visible .ds-go{background:#e2231a;color:#fff;transform:translateX(3px);}.ds-list a:focus-visible{outline:3px solid #e2231a;outline-offset:3px;}"
+    },
+    {
+      "name": "Numbered Step",
+      "kind": "custom",
+      "refersTo": "step-number",
+      "description": "Red disc counter beside a title and mist body, on slate.",
+      "html": "<ol class=\"ds-steps\"><li><div><h3>Call or text</h3><p>Say what's wrong and where.</p></div></li><li><div><h3>Get a quote</h3><p>Tell PJC what's wrong and get a price.</p></div></li></ol>",
+      "css": ".ds-steps{list-style:none;margin:0;padding:16px;display:grid;gap:18px;counter-reset:s;background:#1f2c39;color:#fff;font:400 17px/1.55 var(--font, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif);}.ds-steps li{display:grid;grid-template-columns:48px 1fr;gap:14px;align-items:start;}.ds-steps li::before{counter-increment:s;content:counter(s);width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:#e2231a;color:#fff;font:900 italic 22px/1 var(--font, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif);box-shadow:0 8px 16px -10px rgba(4,12,20,.6);}.ds-steps h3{margin:0;padding-top:4px;font:900 italic 1.3rem/.98 var(--font, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif);text-transform:uppercase;letter-spacing:-.02em;}.ds-steps p{margin:4px 0 0;color:#c3d3dc;}"
+    },
+    {
+      "name": "Sticky Phone Bar",
+      "kind": "nav",
+      "refersTo": "button-primary",
+      "description": "Phones only: fixed bottom Call/Text bar that slides away while the hero buttons are visible.",
+      "html": "<nav class=\"ds-sticky\"><a class=\"ds-btn ds-btn-red\" href=\"#\"><svg class=\"ds-i\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2\"/></svg>Call</a><a class=\"ds-btn ds-btn-line\" href=\"#\"><svg class=\"ds-i\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 5h16v11H9l-5 4z\"/></svg>Text</a></nav>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 22px;border-radius:10px;border:2px solid #e2231a;font:800 17px/1.1 var(--font, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif);letter-spacing:.01em;white-space:nowrap;text-decoration:none;transition:background-color .2s ease-out,color .2s ease-out,transform .15s ease-out;}.ds-btn:active{transform:scale(.98);}.ds-btn:focus-visible{outline:3px solid #e2231a;outline-offset:3px;}.ds-i{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;}.ds-sticky{display:flex;gap:10px;padding:10px 16px;background:rgba(24,34,45,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 -10px 24px -14px rgba(4,12,20,.9);transition:transform .35s cubic-bezier(.16,1,.3,1);}.ds-sticky .ds-btn{flex:1;padding:0 12px;}.ds-sticky .ds-btn-line{flex:0 0 34%;}.ds-btn-red{background:#e2231a;color:#fff;}.ds-btn-red:hover{background:#b5150e;border-color:#b5150e;}.ds-btn-line{background:transparent;color:#fff;border-color:rgba(255,255,255,.85);}.ds-btn-line:hover{background:rgba(255,255,255,.08);}"
+    },
+    {
+      "name": "Fogged Glass Pane",
+      "kind": "custom",
+      "description": "Signature: four-lite sash-framed window with canvas fog the visitor wipes clear. Snippet shows the still CSS fog fallback and frame; the live engine is the pane IIFE in index.html.",
+      "html": "<div class=\"ds-pane\"><div class=\"ds-sash\"></div><span class=\"ds-hint\">Drag to wipe the glass</span></div>",
+      "css": ".ds-pane{position:relative;width:100%;max-width:420px;aspect-ratio:16/10;border-radius:8px;border:9px solid #f3f6f7;box-shadow:0 22px 44px -22px rgba(4,12,20,.8),0 2px 0 rgba(0,0,0,.15);overflow:hidden;background:linear-gradient(rgba(226,236,241,.82),rgba(226,236,241,.88)),linear-gradient(#7fb6dc,#bfe0f0 55%,#f4dcc2);cursor:crosshair;}.ds-sash{position:absolute;inset:0;pointer-events:none;}.ds-sash::before,.ds-sash::after{content:\"\";position:absolute;background:#f3f6f7;box-shadow:0 3px 8px rgba(4,12,20,.25);}.ds-sash::before{left:50%;top:0;bottom:0;width:8px;margin-left:-4px;}.ds-sash::after{top:50%;left:0;right:0;height:8px;margin-top:-4px;}.ds-hint{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);padding:7px 12px;border-radius:999px;background:rgba(24,34,45,.78);color:#fff;font:700 14px/1.2 var(--font, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif);white-space:nowrap;transition:opacity .6s ease-out;}.ds-pane:hover .ds-hint{opacity:0;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Fogged Window",
+    "overview": "The page is a pane of glass the visitor is standing behind. Charcoal-blue ground, pale window-glass sections, a white four-lite sash lifted from PJC's own logo icon, and logo red as the only loud colour. The material is condensation: fog that breathes and creeps back, beads that grow, merge and run, and seams between sections that move like water sheeting off glass. The signature is touch: drag a finger across a pane and it clears, the same thing PJC does to fogged insulated units for a living.\n\nDensity is phone-first and tradesperson-direct: big heavy italic uppercase headings, short plain paragraphs, full-width tap targets, and a call action never more than one thumb away. Desktop is an adaptation of the phone layout, not a separate design. Everything ships in one static file: system fonts, inline SVG icons, one inlined logo, canvas-drawn scenes; no photography.",
+    "keyCharacteristics": [
+      "Logo red (#e2231a family) is the only saturated colour; everything else is slate, glass or mist.",
+      "Dark slate and pale glass sections alternate, joined by animated water-seam SVGs, never by hard edges.",
+      "Headings are system sans at weight 900, italic, uppercase, tight (0.98 line-height), echoing the logo's heavy italic \"PJC\".",
+      "The fogged-glass pane is the one signature component; it appears in the hero and the close.",
+      "Call is always primary (solid red), text is always secondary (outline).",
+      "Motion is ambient and material (fog, beads, water), paused off screen, and reduced to a still frame on request."
+    ],
+    "rules": [
+      {
+        "name": "The One Loud Colour Rule",
+        "body": "Logo red is the only saturated colour on the page. Water blues stay inside seams and panes; nothing else competes with red.",
+        "section": "colors"
+      },
+      {
+        "name": "The Never Black Rule",
+        "body": "The dark ground is slate (`slate`), never #000. Depth on slate comes from the slate-2 / slate-3 steps.",
+        "section": "colors"
+      },
+      {
+        "name": "The Logo Voice Rule",
+        "body": "Every h1/h2/h3 is weight 900, italic, uppercase, -0.02em, balanced wrapping. Body copy is never italic or uppercase.",
+        "section": "typography"
+      },
+      {
+        "name": "The Split Headline Rule",
+        "body": "A headline may turn its final clause logo red to land the benefit (\"Clear glass. *Working windows.*\"); one red clause per heading, never a red word mid-sentence.",
+        "section": "typography"
+      },
+      {
+        "name": "The Thumb Reach Rule",
+        "body": "On phones a Call button is always on screen: the hero buttons first, then the sticky bar, which steps aside (translateY(110%)) whenever the hero buttons are visible so the action is never doubled.",
+        "section": "layout"
+      },
+      {
+        "name": "The Forward Objects Only Rule",
+        "body": "Only things that sit in front of the wall (pane, buttons, discs, sticky bar) get a shadow. Sections, rows and text never do.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Ruled Not Boxed Rule",
+        "body": "Repeating content (services, audiences) is separated by horizontal rules, never wrapped in cards or tinted tiles.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "**Do** keep logo red as the only saturated colour; use it for the primary action and one headline clause.",
+      "**Do** set every heading in the system stack at 900 italic uppercase, -0.02em, 0.98 line-height.",
+      "**Do** pair Call (solid red) with Text (outline), Call first, 56px tall.",
+      "**Do** join slate and glass sections with a water seam, never a straight edge.",
+      "**Do** frame any new glass surface as a pane: sash-white 9px frame, four-lite sash cross, canvas engine with a still CSS fog fallback.",
+      "**Do** run all ambient motion through the shared loops, pause it off screen, and give it a still reduced-motion frame.",
+      "**Do** keep shadows slate-tinted with negative spread, and only under forward objects."
+    ],
+    "donts": [
+      "**Don't** use black (#000) as a ground; the dark is slate.",
+      "**Don't** introduce a second accent hue or let the water blues leave seams and panes.",
+      "**Don't** box repeating content in cards; rule it.",
+      "**Don't** add photography, stock imagery or webfonts; the scenes are canvas-drawn and the type is the system stack.",
+      "**Don't** block vertical scroll on a pane or start a per-element animation loop.",
+      "**Don't** use icon fonts or filled glyph icons; icons are 2.2-stroke inline line SVGs."
+    ]
+  }
+}
