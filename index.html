@@ -1,0 +1,859 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PJC Glass &amp; Showers — Window, Glass &amp; Shower Repair, NJ</title>
+<meta name="description" content="PJC Glass & Showers: window repair, fogged insulated units, balance repair, screen repair, shower enclosures and commercial door repair. Residential and commercial, entire complexes. Call 732-579-7813.">
+<meta name="theme-color" content="#18222d">
+<meta property="og:title" content="PJC Glass & Showers">
+<meta property="og:description" content="Window repair, fogged insulated units, balance & screen repair, shower enclosures, commercial doors. Call 732-579-7813.">
+<style>
+  /* ---------- Tokens ---------- */
+  :root {
+    --slate: #18222d;        /* page ground: charcoal-blue, never black */
+    --slate-2: #1f2c39;
+    --slate-3: #2a3a4a;
+    --glass: #e8f0f3;        /* light sections: pale window glass */
+    --glass-2: #d6e3e8;
+    --ink: #142029;
+    --ink-soft: #3d5262;
+    --mist: #c3d3dc;         /* secondary text on slate */
+    --red: #e2231a;          /* PJC logo red */
+    --red-deep: #b5150e;
+    --white: #ffffff;
+    --frame: #f3f6f7;        /* window frame, from the logo's white sash */
+    --radius: 10px;
+    --gut: 16px;
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  /* ---------- Base ---------- */
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--slate); color: var(--white);
+    font: 400 17px/1.55 var(--font);
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: calc(76px + env(safe-area-inset-bottom));
+    caret-color: var(--red);
+  }
+  ::selection { background: var(--red); color: var(--white); }
+  a { color: inherit; text-underline-offset: .2em; }
+  :focus-visible { outline: 3px solid var(--red); outline-offset: 3px; border-radius: 6px; }
+  img { max-width: 100%; display: block; }
+  h1, h2, h3 {
+    margin: 0; font-weight: 900; font-style: italic; text-transform: uppercase;
+    letter-spacing: -.02em; line-height: .98; text-wrap: balance;
+  }
+  p { margin: 0; }
+  .wrap { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 var(--gut); }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  svg.i { width: 22px; height: 22px; flex: none; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* ---------- Buttons (one component, every page) ---------- */
+  .btn {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    min-height: 56px; padding: 0 22px; border-radius: var(--radius);
+    border: 2px solid var(--red); font: 800 17px/1.1 var(--font);
+    text-decoration: none; letter-spacing: .01em; white-space: nowrap;
+    transition: background-color .2s ease-out, color .2s ease-out, transform .15s ease-out;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .btn:active { transform: scale(.98); }
+  .btn-red { background: var(--red); color: var(--white); box-shadow: 0 8px 18px -10px rgba(4, 12, 20, .55); }
+  .btn-red:hover { background: var(--red-deep); border-color: var(--red-deep); }
+  .btn-line { background: transparent; color: var(--white); border-color: rgba(255, 255, 255, .85); }
+  .btn-line:hover { background: rgba(255, 255, 255, .08); }
+  .on-glass .btn-line { color: var(--ink); border-color: var(--ink); }
+  .on-glass .btn-line:hover { background: rgba(20, 32, 41, .06); }
+  .num { font-variant-numeric: tabular-nums; }
+
+  /* ---------- Top bar ---------- */
+  .top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 12px; }
+  .top .logo { height: 46px; width: auto; border-radius: 6px; }
+  .top a.call {
+    display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px;
+    border-radius: 999px; background: var(--slate-3); color: var(--white);
+    font-weight: 800; font-size: 15px; text-decoration: none;
+  }
+  .top a.call svg { width: 18px; height: 18px; color: var(--red); }
+
+  /* ---------- Hero ---------- */
+  .hero { padding-bottom: 28px; }
+  .hero-grid { display: grid; gap: 20px; padding-top: 22px; }
+  .hero h1 { font-size: clamp(2.45rem, 11.2vw, 5.4rem); }
+  .hero h1 .red { color: var(--red); }
+  .pitch { margin-top: 14px; font-size: clamp(17px, 4.6vw, 20px); color: var(--mist); max-width: 34em; }
+  .pitch strong { color: var(--white); font-weight: 700; }
+  .actions { display: grid; gap: 10px; margin-top: 20px; }
+
+  /* ---------- The pane: fogged window you can wipe (signature) ---------- */
+  .pane {
+    position: relative; width: 100%; aspect-ratio: 16 / 10; border-radius: 8px;
+    border: 9px solid var(--frame);
+    box-shadow: 0 22px 44px -22px rgba(4, 12, 20, .8), 0 2px 0 rgba(0, 0, 0, .15);
+    overflow: hidden; touch-action: pan-y; user-select: none; -webkit-user-select: none;
+    /* still fog before the canvas draws */
+    background:
+      linear-gradient(rgba(226, 236, 241, .82), rgba(226, 236, 241, .88)),
+      linear-gradient(#7fb6dc, #bfe0f0 55%, #f4dcc2);
+    cursor: crosshair;
+  }
+  .pane canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .pane .sash { position: absolute; inset: 0; pointer-events: none; }
+  .pane .sash::before, .pane .sash::after { content: ""; position: absolute; background: var(--frame); box-shadow: 0 3px 8px rgba(4, 12, 20, .25); }
+  .pane .sash::before { left: 50%; top: 0; bottom: 0; width: 8px; margin-left: -4px; }
+  .pane .sash::after { top: 50%; left: 0; right: 0; height: 8px; margin-top: -4px; }
+  .hint {
+    position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%);
+    display: inline-flex; align-items: center; gap: 7px; padding: 7px 12px 7px 10px;
+    border-radius: 999px; background: rgba(24, 34, 45, .78); color: var(--white);
+    font-size: 14px; font-weight: 700; pointer-events: none; white-space: nowrap;
+    transition: opacity .6s ease-out;
+  }
+  .hint svg { width: 18px; height: 18px; }
+  .pane.touched .hint { opacity: 0; }
+
+  /* ---------- Water seams between sections ---------- */
+  svg.ripple { display: block; width: 100%; height: 28px; margin: -1px 0; }
+  svg.ripple path { fill: none; stroke-width: 2.2; vector-effect: non-scaling-stroke; }
+  svg.ripple .ripple-fill { stroke: none; }
+
+  /* ---------- Services ---------- */
+  .services { background: var(--glass); color: var(--ink); padding: 34px 0 44px; }
+  .sec-head h2 { font-size: clamp(2rem, 8.6vw, 3.6rem); }
+  .sec-head p { margin-top: 12px; color: var(--ink-soft); max-width: 36em; }
+  .list { list-style: none; margin: 22px 0 0; padding: 0; border-top: 2px solid var(--ink); }
+  .list li { border-bottom: 1px solid rgba(20, 32, 41, .18); }
+  .list a {
+    display: grid; grid-template-columns: 1fr 44px; gap: 14px; align-items: center;
+    padding: 18px 0; text-decoration: none; color: var(--ink);
+    -webkit-tap-highlight-color: rgba(226, 35, 26, .12);
+  }
+  .list h3 { font-size: clamp(1.3rem, 6vw, 1.75rem); line-height: 1.02; }
+  .list p { margin-top: 6px; color: var(--ink-soft); font-size: 16px; }
+  .go {
+    width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
+    background: var(--white); color: var(--red); box-shadow: 0 6px 14px -8px rgba(20, 32, 41, .5);
+    transition: background-color .2s ease-out, color .2s ease-out, transform .2s ease-out;
+  }
+  .go svg { width: 20px; height: 20px; }
+  .list a:hover .go, .list a:active .go { background: var(--red); color: var(--white); transform: translateX(3px); }
+  .list-note { margin-top: 16px; color: var(--ink-soft); font-size: 15px; }
+
+  /* ---------- Who it's for ---------- */
+  .who { background: var(--slate-2); padding: 36px 0 18px; }
+  .who h2 { font-size: clamp(2rem, 8.6vw, 3.6rem); }
+  .who h2 .red { color: var(--red); }
+  .who-rows { display: grid; margin-top: 22px; }
+  .who-row { padding: 18px 0; border-top: 1px solid rgba(195, 211, 220, .25); }
+  .who-row h3 { font-size: clamp(1.45rem, 6.4vw, 2rem); }
+  .who-row p { margin-top: 6px; color: var(--mist); }
+  .who-row .quote { color: var(--white); font-weight: 700; }
+
+  /* ---------- How it works ---------- */
+  .how { background: var(--slate-2); padding: 18px 0 40px; }
+  .how h2 { font-size: clamp(1.7rem, 7vw, 2.6rem); }
+  .steps { list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 18px; counter-reset: s; }
+  .steps li { display: grid; grid-template-columns: 48px 1fr; gap: 14px; align-items: start; }
+  .steps li::before {
+    counter-increment: s; content: counter(s);
+    width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center;
+    background: var(--red); color: var(--white); font: 900 italic 22px/1 var(--font);
+    box-shadow: 0 8px 16px -10px rgba(4, 12, 20, .6);
+  }
+  .steps h3 { font-size: 1.3rem; padding-top: 4px; }
+  .steps p { margin-top: 4px; color: var(--mist); }
+
+  /* ---------- Close ---------- */
+  .close { background: var(--glass); color: var(--ink); padding: 34px 0 44px; }
+  .close-grid { display: grid; gap: 22px; }
+  .close .pane { aspect-ratio: 16 / 9; }
+  .close h2 { font-size: clamp(2rem, 9vw, 3.6rem); }
+  .close p.lead { margin-top: 12px; color: var(--ink-soft); }
+  .close .actions { margin-top: 20px; }
+
+  /* ---------- Footer ---------- */
+  footer { padding: 28px 0 32px; color: var(--mist); font-size: 15px; }
+  footer strong { color: var(--white); }
+  footer .demo { margin-top: 10px; font-size: 14px; opacity: .85; }
+
+  /* ---------- Sticky action bar (phones) ---------- */
+  .sticky {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
+    display: flex; gap: 10px; padding: 10px var(--gut) calc(10px + env(safe-area-inset-bottom));
+    background: rgba(24, 34, 45, .94); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+    box-shadow: 0 -10px 24px -14px rgba(4, 12, 20, .9);
+    transition: transform .35s cubic-bezier(.16, 1, .3, 1);
+  }
+  .sticky .btn { flex: 1; padding: 0 12px; }
+  .sticky .btn-line { flex: 0 0 34%; }
+  .sticky.is-hidden { transform: translateY(110%); }
+
+  /* ---------- Desktop adaptation ---------- */
+  @media (min-width: 760px) {
+    :root { --gut: 32px; }
+    body { padding-bottom: 0; }
+    .sticky { display: none; }
+    .top { padding-top: 20px; }
+    .top .logo { height: 58px; }
+    .actions { grid-template-columns: auto auto; justify-content: start; }
+    .list { display: grid; grid-template-columns: 1fr 1fr; column-gap: 48px; }
+    .who-rows { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .steps { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  }
+  @media (min-width: 1000px) {
+    .hero { padding-bottom: 56px; }
+    .hero-grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 56px; align-items: center; padding-top: 48px; }
+    .hero h1 { font-size: clamp(3.4rem, 5.2vw, 4.8rem); }
+    .hero .pane { aspect-ratio: 5 / 4; }
+    .services, .close { padding: 64px 0 72px; }
+    .who { padding-top: 64px; }
+    .how { padding-bottom: 72px; }
+    .close-grid { grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: center; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .btn, .go, .sticky { transition: none; }
+  }
+</style>
+</head>
+<body>
+<!--
+  DIRECTION CONTRACT
+  THESIS: A glass shop's page should feel like glass: a fogged window you clear with your own finger, the way PJC clears fogged insulated units for a living.
+  OWN-WORLD: Window glass and shower condensation. Fog that breathes and creeps back, beads that grow, merge and run down leaving clear trails, a white four-lite sash lifted from PJC's own logo icon, logo red as the only loud colour on a charcoal-blue ground. Section seams are water sheeting off glass.
+  STORY: Recognise the business (their logo, their flyer's services) → wipe the glass and see "FULL SERVICE" → find your problem in the service list and tap it to ask → see they take homes, businesses and whole complexes → three-step how-it-works → call.
+  FIRST VIEWPORT (phone): logo + call pill, benefit headline, one-line pitch with the service names, Call and Text buttons, and the top of the fogged window already being wiped.
+  FORM: Single-file static page, phone-first; one shared canvas loop per visible pane, transform-free 2D canvas, SVG seams; sticky Call/Text bar on phones.
+-->
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="top">
+      <img class="logo" id="logo" alt="PJC Glass and Showers" width="560" height="240" src="data:image/webp;base64,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">
+      <a class="call" href="tel:+17325797813" aria-label="Call PJC Glass and Showers at 732-579-7813">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+        <span class="num">732-579-7813</span>
+      </a>
+    </div>
+
+    <div class="hero-grid">
+      <div>
+        <h1>Clear glass. <span class="red">Working windows.</span></h1>
+        <p class="pitch">Window &amp; screen repair, <strong>fogged insulated units</strong>, balance repair, shower enclosures and commercial doors. Homes, businesses, entire complexes across New Jersey.</p>
+        <div class="actions" id="hero-actions">
+          <a class="btn btn-red" href="tel:+17325797813">
+            <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+            Call <span class="num">732-579-7813</span>
+          </a>
+          <a class="btn btn-line" href="sms:+17325797813" data-sms="">
+            <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>
+            Text a photo
+          </a>
+        </div>
+      </div>
+
+      <div class="pane" data-scene="sky" data-fog="0.94" aria-label="A fogged window. Drag across it to wipe the glass clear." role="img">
+        <canvas></canvas>
+        <div class="sash"></div>
+        <span class="hint"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11V5a1.5 1.5 0 0 1 3 0v5m0-1a1.5 1.5 0 0 1 3 0v2m0-1a1.5 1.5 0 0 1 3 0v4a6 6 0 0 1-6 6h-1a6 6 0 0 1-5-2.7L3.5 14a1.5 1.5 0 0 1 2.5-1.7L9 15"/></svg>Wipe the glass</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<svg class="ripple" viewBox="0 0 1200 28" preserveAspectRatio="none" aria-hidden="true" style="background: var(--slate)">
+  <path class="ripple-fill" fill="#e8f0f3"/>
+  <path stroke="#7fb6dc" opacity=".55"/>
+  <path stroke="#ffffff"/>
+  <path stroke="#bfe0f0" opacity=".8"/>
+</svg>
+
+<main>
+  <section class="services" id="services" aria-labelledby="services-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="services-h">What PJC fixes</h2>
+        <p>Tap the one you need and a text opens with it already filled in. Add a photo and your town.</p>
+      </div>
+      <ul class="list">
+        <li><a href="sms:+17325797813" data-sms="window repair">
+          <div><h3>Window Repair</h3><p>Cracked or broken glass, windows that stick, won't lock or let the draft in.</p></div>
+          <span class="go" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h13m-5-5 5 5-5 5"/></svg></span>
+        </a></li>
+        <li><a href="sms:+17325797813" data-sms="fogged insulated units">
+          <div><h3>Fogged Insulated Units</h3><p>Haze or moisture stuck between the two panes means the seal has failed. The glass unit can be replaced.</p></div>
+          <span class="go" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h13m-5-5 5 5-5 5"/></svg></span>
+        </a></li>
+        <li><a href="sms:+17325797813" data-sms="balance repair">
+          <div><h3>Balance Repair</h3><p>Window won't stay up, slams down, or is too heavy to lift? The balances in the frame are worn out.</p></div>
+          <span class="go" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h13m-5-5 5 5-5 5"/></svg></span>
+        </a></li>
+        <li><a href="sms:+17325797813" data-sms="screen repair">
+          <div><h3>Screen Repair</h3><p>Torn, bent or missing screens, so the windows can stay open without the bugs.</p></div>
+          <span class="go" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h13m-5-5 5 5-5 5"/></svg></span>
+        </a></li>
+        <li><a href="sms:+17325797813" data-sms="a shower enclosure">
+          <div><h3>Shower Enclosures</h3><p>Glass shower doors and enclosures for the bathroom.</p></div>
+          <span class="go" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h13m-5-5 5 5-5 5"/></svg></span>
+        </a></li>
+        <li><a href="sms:+17325797813" data-sms="commercial door repair">
+          <div><h3>Commercial Door Repair</h3><p>Storefront and commercial doors that drag, won't close or won't lock.</p></div>
+          <span class="go" aria-hidden="true"><svg class="i" viewBox="0 0 24 24"><path d="M5 12h13m-5-5 5 5-5 5"/></svg></span>
+        </a></li>
+      </ul>
+      <p class="list-note">Something else glass? Ask anyway. PJC is full service.</p>
+    </div>
+  </section>
+
+  <svg class="ripple" viewBox="0 0 1200 28" preserveAspectRatio="none" aria-hidden="true" style="background: var(--glass)">
+    <path class="ripple-fill" fill="#1f2c39"/>
+    <path stroke="#bfe0f0" opacity=".9"/>
+    <path stroke="#7fb6dc"/>
+    <path stroke="#2a3a4a"/>
+  </svg>
+
+  <section class="who" aria-labelledby="who-h">
+    <div class="wrap">
+      <h2 id="who-h">One house or <span class="red">the whole complex.</span></h2>
+      <div class="who-rows">
+        <div class="who-row">
+          <h3>Homes</h3>
+          <p>The window that fogged up, the sash that won't stay open, the shower you want in glass.</p>
+        </div>
+        <div class="who-row">
+          <h3>Businesses</h3>
+          <p>Commercial doors and storefront glass, fixed so you can lock up tonight.</p>
+        </div>
+        <div class="who-row">
+          <h3>Entire complexes</h3>
+          <p><span class="quote">“Service Entire Complex”</span> is on PJC's own flyer. Property managers: one number for every unit's windows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how" aria-labelledby="how-h">
+    <div class="wrap">
+      <h2 id="how-h">How it works</h2>
+      <ol class="steps">
+        <li><div><h3>Call or text</h3><p>Say what's wrong and where. A photo of the glass or the frame helps.</p></div></li>
+        <li><div><h3>Get a quote</h3><p>PJC tells you what it needs and what it costs before any work starts.</p></div></li>
+        <li><div><h3>See clearly</h3><p>The glass is fixed, the window works, the door locks.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <svg class="ripple" viewBox="0 0 1200 28" preserveAspectRatio="none" aria-hidden="true" style="background: var(--slate-2)">
+    <path class="ripple-fill" fill="#e8f0f3"/>
+    <path stroke="#7fb6dc" opacity=".55"/>
+    <path stroke="#ffffff"/>
+    <path stroke="#bfe0f0" opacity=".8"/>
+  </svg>
+
+  <section class="close on-glass" aria-labelledby="close-h">
+    <div class="wrap close-grid">
+      <div class="pane" data-scene="logo" data-fog="0.72" aria-label="The PJC Glass and Showers logo behind fogged glass. Drag across it to wipe." role="img">
+        <canvas></canvas>
+        <div class="sash"></div>
+      </div>
+      <div>
+        <h2 id="close-h">PJC Glass &amp; Showers</h2>
+        <p class="lead">Window repair, fogged glass, balances, screens, shower enclosures and commercial doors. Residential and commercial. Full service.</p>
+        <div class="actions">
+          <a class="btn btn-red" href="tel:+17325797813">
+            <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+            Call <span class="num">732-579-7813</span>
+          </a>
+          <a class="btn btn-line" href="sms:+17325797813" data-sms="">
+            <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>
+            Text <span class="num">732-579-7813</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <svg class="ripple" viewBox="0 0 1200 28" preserveAspectRatio="none" aria-hidden="true" style="background: var(--glass)">
+    <path class="ripple-fill" fill="#18222d"/>
+    <path stroke="#bfe0f0" opacity=".9"/>
+    <path stroke="#7fb6dc"/>
+    <path stroke="#2a3a4a"/>
+  </svg>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>PJC Glass &amp; Showers</strong> · New Jersey · <a class="num" href="tel:+17325797813">732-579-7813</a></p>
+    <p class="demo">Demo one-pager — free sample.</p>
+  </div>
+</footer>
+
+<nav class="sticky is-hidden" id="sticky" aria-label="Contact PJC">
+  <a class="btn btn-red" href="tel:+17325797813">
+    <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+    Call
+  </a>
+  <a class="btn btn-line" href="sms:+17325797813" data-sms="">
+    <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>
+    Text
+  </a>
+</nav>
+
+<script>
+  // ---------- Contact wiring: every [data-sms] link opens a pre-filled text ----------
+  (function () {
+    var PHONE = '+17325797813';
+    var NAME = 'PJC Glass & Showers';
+    document.querySelectorAll('a[data-sms]').forEach(function (a) {
+      var what = a.getAttribute('data-sms');
+      var body = 'Hi ' + NAME + '! I\'d like a quote' + (what ? ' for ' + what : '') + '.\n' +
+                 'What needs fixing: \nTown: \n(Photo attached)';
+      a.href = 'sms:' + PHONE + '?&body=' + encodeURIComponent(body);
+    });
+  })();
+
+  // ---------- Fogged glass panes (signature) ----------
+  // Each .pane is a window: a crisp scene behind glass, a fog mask over it that
+  // breathes and creeps back, and water beads that grow, merge and run down,
+  // clearing a trail. Finger or mouse wipes the fog and shoves the beads, which
+  // spring back with a wobble; shove one hard and it breaks loose and runs.
+  // One shared loop for every pane; panes off screen are skipped.
+  (function () {
+    var els = [].slice.call(document.querySelectorAll('.pane'));
+    if (!els.length) return;
+    var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var phone = window.matchMedia('(max-width: 759px)').matches;
+
+    // Tunables
+    var FOG_SCALE = 4;            // fog mask resolution divisor
+    var REGROW = 0.10;            // fog regrowth per second (0..1 of full)
+    var WIPE_R = phone ? 24 : 32; // finger/mouse wipe radius, CSS px
+    var BEAD_DENSITY = phone ? 1 / 1900 : 1 / 1500; // beads per CSS px²
+    var BEAD_MAX = phone ? 60 : 150;
+    var RUN_R = 4.6;              // beads bigger than this start to run
+    var PUSH_R = 52;              // pointer push radius
+    var PUSH = 1500;              // pointer push strength
+    var SPRING = 38, DAMP = 6.5;  // spring back with a small wobble
+    var BREAK_SPEED = 900;        // pointer speed (px/s) that knocks a bead loose
+    var GHOST_IDLE = 9;           // seconds idle before a ghost wipe
+    var SWIRL_SPEED = 1.6;        // steam swirl drift speed
+
+    var DPR = Math.min(window.devicePixelRatio || 1, 2);
+    var logo = document.getElementById('logo');
+    var panes = els.map(make);
+    var raf = 0, last = 0;
+
+    function mk(w, h) { var c = document.createElement('canvas'); c.width = Math.max(1, w | 0); c.height = Math.max(1, h | 0); return c; }
+
+    // Soft round brush used to wipe fog (alpha falls off toward the edge).
+    var brush = (function () {
+      var c = mk(64, 64), x = c.getContext('2d');
+      var g = x.createRadialGradient(32, 32, 0, 32, 32, 32);
+      g.addColorStop(0, 'rgba(0,0,0,1)'); g.addColorStop(.55, 'rgba(0,0,0,.9)'); g.addColorStop(1, 'rgba(0,0,0,0)');
+      x.fillStyle = g; x.fillRect(0, 0, 64, 64);
+      return c;
+    })();
+
+    // Shading over each bead: dark refracted rim, soft bright body low on the
+    // side away from the light. Filled, no hairline glints.
+    var beadShade = (function () {
+      var c = mk(64, 64), x = c.getContext('2d');
+      var g = x.createRadialGradient(28, 26, 6, 32, 32, 32);
+      g.addColorStop(0, 'rgba(255,255,255,0)'); g.addColorStop(.7, 'rgba(20,40,55,.10)');
+      g.addColorStop(.92, 'rgba(14,30,42,.42)'); g.addColorStop(1, 'rgba(14,30,42,0)');
+      x.fillStyle = g; x.fillRect(0, 0, 64, 64);
+      var h = x.createRadialGradient(38, 42, 0, 38, 42, 15);
+      h.addColorStop(0, 'rgba(255,255,255,.75)'); h.addColorStop(1, 'rgba(255,255,255,0)');
+      x.fillStyle = h; x.fillRect(0, 0, 64, 64);
+      return c;
+    })();
+
+    // Paint what's outside the glass.
+    function paintScene(p) {
+      var c = p.scene, x = c.getContext('2d'), w = c.width, h = c.height, s = DPR;
+      x.setTransform(1, 0, 0, 1, 0, 0);
+      // Outside: a bright sky, the same as the hero window.
+      var sky = x.createLinearGradient(0, 0, 0, h);
+      sky.addColorStop(0, '#6eaad6'); sky.addColorStop(.55, '#bfe0f0'); sky.addColorStop(1, '#f6dcc0');
+      x.fillStyle = sky; x.fillRect(0, 0, w, h);
+      var sun = x.createRadialGradient(w * .8, h * .22, 0, w * .8, h * .22, h * .55);
+      sun.addColorStop(0, 'rgba(255,250,235,.95)'); sun.addColorStop(1, 'rgba(255,250,235,0)');
+      x.fillStyle = sun; x.fillRect(0, 0, w, h);
+      if (p.kind === 'logo') {
+        // Their sign, hung outside the window.
+        if (logo.complete && logo.naturalWidth) {
+          var lw = w * .78, lh = lw * logo.naturalHeight / logo.naturalWidth;
+          if (lh > h * .74) { lh = h * .74; lw = lh * logo.naturalWidth / logo.naturalHeight; }
+          var lx = (w - lw) / 2, ly = (h - lh) / 2, rr = 10 * s;
+          x.save();
+          x.shadowColor = 'rgba(14,30,42,.45)'; x.shadowBlur = 26 * s; x.shadowOffsetY = 12 * s;
+          x.beginPath();
+          x.moveTo(lx + rr, ly); x.arcTo(lx + lw, ly, lx + lw, ly + lh, rr); x.arcTo(lx + lw, ly + lh, lx, ly + lh, rr);
+          x.arcTo(lx, ly + lh, lx, ly, rr); x.arcTo(lx, ly, lx + lw, ly, rr); x.closePath();
+          x.fillStyle = '#0d0f12'; x.fill();
+          x.shadowColor = 'transparent'; x.clip();
+          x.drawImage(logo, lx, ly, lw, lh);
+          x.restore();
+        }
+      } else {
+        // Their flyer's own words, waiting behind the fog.
+        x.textAlign = 'center'; x.textBaseline = 'middle';
+        var f = 'italic 900 100px ' + getComputedStyle(document.body).fontFamily;
+        x.font = f;
+        var k = Math.min(w * .84 / x.measureText('FULL SERVICE').width, h * .2 / 100);
+        x.font = 'italic 900 ' + (100 * k).toFixed(1) + 'px ' + getComputedStyle(document.body).fontFamily;
+        x.fillStyle = '#e2231a';
+        x.fillText('FULL SERVICE', w / 2, h * .27);
+        x.font = '800 100px ' + getComputedStyle(document.body).fontFamily;
+        var k2 = Math.min(w * .8 / x.measureText('HOMES · BUSINESSES · COMPLEXES').width, h * .075 / 100);
+        x.font = '800 ' + (100 * k2).toFixed(1) + 'px ' + getComputedStyle(document.body).fontFamily;
+        x.fillStyle = '#18222d';
+        x.fillText('HOMES · BUSINESSES · COMPLEXES', w / 2, h * .75);
+      }
+      // Blurred copy: two downscales give a soft fogged view of the scene.
+      var a = mk(w / 4, h / 4), ax = a.getContext('2d');
+      ax.imageSmoothingQuality = 'high'; ax.drawImage(c, 0, 0, a.width, a.height);
+      var b = p.blur, bx = b.getContext('2d');
+      bx.imageSmoothingQuality = 'high'; bx.clearRect(0, 0, b.width, b.height); bx.drawImage(a, 0, 0, b.width, b.height);
+    }
+
+    // Drifting steam texture: soft white blobs, tiled, slid around by layered sines.
+    function makeSwirl(w, h) {
+      var c = mk(w, h), x = c.getContext('2d');
+      for (var i = 0; i < 26; i++) {
+        var r = (0.12 + Math.random() * 0.22) * Math.max(w, h);
+        var cx = Math.random() * w, cy = Math.random() * h;
+        for (var ox = -w; ox <= w; ox += w) for (var oy = -h; oy <= h; oy += h) {
+          var g = x.createRadialGradient(cx + ox, cy + oy, 0, cx + ox, cy + oy, r);
+          g.addColorStop(0, 'rgba(255,255,255,.28)'); g.addColorStop(1, 'rgba(255,255,255,0)');
+          x.fillStyle = g; x.fillRect(0, 0, w, h);
+        }
+      }
+      return c;
+    }
+
+    function make(el) {
+      var p = {
+        el: el, cv: el.querySelector('canvas'), kind: el.getAttribute('data-scene'),
+        fogMax: parseFloat(el.getAttribute('data-fog')) || .9,
+        beads: [], on: false, t: Math.random() * 100, idle: 0, ghost: null, touched: false,
+        ptr: { x: 0, y: 0, vx: 0, vy: 0, live: 0, has: false }
+      };
+      p.ctx = p.cv.getContext('2d');
+      setup(p);
+      bindPointer(p);
+      return p;
+    }
+
+    function setup(p) {
+      var r = p.el.getBoundingClientRect();
+      // clientWidth excludes the frame border; the canvas fills the glass.
+      p.W = p.el.clientWidth; p.H = p.el.clientHeight;
+      p.cv.width = Math.round(p.W * DPR); p.cv.height = Math.round(p.H * DPR);
+      p.scene = mk(p.cv.width, p.cv.height);
+      p.blur = mk(p.cv.width / 10, p.cv.height / 10);
+      p.tmp = mk(p.cv.width, p.cv.height);
+      p.fog = mk(p.W / FOG_SCALE, p.H / FOG_SCALE);
+      var fx = p.fog.getContext('2d');
+      fx.fillStyle = '#000'; fx.fillRect(0, 0, p.fog.width, p.fog.height);
+      p.swirl = makeSwirl(Math.ceil(p.W / 3), Math.ceil(p.H / 3));
+      paintScene(p);
+      var n = Math.min(BEAD_MAX, Math.round(p.W * p.H * BEAD_DENSITY));
+      p.beads = [];
+      for (var i = 0; i < n; i++) p.beads.push(bead(p, Math.random() * p.H));
+      // Some already on the move so the first frame looks lived-in.
+      for (var j = 0; j < Math.min(4, n); j++) { p.beads[j].r = RUN_R + 1; p.beads[j].run = true; }
+      p.n = n;
+      if (!still) p.ghost = { t: -0.5, path: ghostPath(p) };
+    }
+
+    function bead(p, y) {
+      return {
+        x: Math.random() * p.W, y: y, r: 1.2 + Math.pow(Math.random(), 2.2) * 3.6,
+        grow: 0.03 + Math.random() * 0.12, run: false, vy: 0, ph: Math.random() * 6.28,
+        ox: 0, oy: 0, vx: 0, vy2: 0, stick: 0
+      };
+    }
+
+    // A loose S-shaped swipe across the glass, like someone checking the view.
+    function ghostPath(p) {
+      var pts = [], W = p.W, H = p.H, c = p.kind === 'logo' ? .14 : 0;
+      for (var i = 0; i <= 40; i++) {
+        var u = i / 40;
+        pts.push({ x: W * (0.08 + 0.84 * u), y: H * (0.3 + c + 0.12 * Math.sin(u * Math.PI * 2.2)) });
+      }
+      for (var k = 40; k >= 0; k--) {
+        var v = k / 40;
+        pts.push({ x: W * (0.08 + 0.84 * v), y: H * (0.42 + c + 0.1 * Math.sin(v * Math.PI * 1.7 + 1)) });
+      }
+      return pts;
+    }
+
+    function wipe(p, x0, y0, x1, y1, r) {
+      var fx = p.fog.getContext('2d'), s = 1 / FOG_SCALE;
+      fx.globalCompositeOperation = 'destination-out';
+      var d = Math.hypot(x1 - x0, y1 - y0), steps = Math.max(1, Math.ceil(d / (r * .3)));
+      for (var i = 0; i <= steps; i++) {
+        var x = x0 + (x1 - x0) * i / steps, y = y0 + (y1 - y0) * i / steps;
+        fx.drawImage(brush, (x - r) * s, (y - r) * s, 2 * r * s, 2 * r * s);
+      }
+      fx.globalCompositeOperation = 'source-over';
+    }
+
+    function poke(p, x, y, vx, vy) {
+      var P = p.ptr, now = performance.now();
+      if (P.has && now - P.live < 120) wipe(p, P.x, P.y, x, y, WIPE_R);
+      else wipe(p, x, y, x, y, WIPE_R);
+      P.vx = vx; P.vy = vy; P.x = x; P.y = y; P.has = true; P.live = now;
+      p.idle = 0; p.ghost = null;
+      if (!p.touched) { p.touched = true; p.el.classList.add('touched'); }
+      if (still) draw(p);
+    }
+
+    function bindPointer(p) {
+      var lx = 0, ly = 0, lt = 0;
+      function at(cx, cy) {
+        var r = p.cv.getBoundingClientRect();
+        var x = cx - r.left, y = cy - r.top, now = performance.now();
+        var dt = Math.max(.008, (now - lt) / 1000);
+        var vx = lt && now - lt < 120 ? (x - lx) / dt : 0, vy = lt && now - lt < 120 ? (y - ly) / dt : 0;
+        lx = x; ly = y; lt = now;
+        if (x < -20 || y < -20 || x > p.W + 20 || y > p.H + 20) return;
+        poke(p, x, y, vx, vy);
+      }
+      p.el.addEventListener('pointermove', function (e) { if (e.pointerType !== 'touch') at(e.clientX, e.clientY); });
+      p.el.addEventListener('pointerdown', function (e) { if (e.pointerType !== 'touch') at(e.clientX, e.clientY); });
+      ['touchstart', 'touchmove'].forEach(function (type) {
+        p.el.addEventListener(type, function (e) {
+          for (var i = 0; i < e.touches.length; i++) at(e.touches[i].clientX, e.touches[i].clientY);
+        }, { passive: true });
+      });
+    }
+
+    function update(p, dt) {
+      p.t += dt;
+      var fx = p.fog.getContext('2d');
+      // Fog creeps back, a little faster where the steam is thicker.
+      fx.globalAlpha = Math.min(1, REGROW * dt);
+      fx.fillStyle = '#000'; fx.fillRect(0, 0, p.fog.width, p.fog.height);
+      fx.globalAlpha = 1;
+
+      // Ghost wipe when nobody's touching (shows the glass is wipeable).
+      p.idle += dt;
+      if (!p.ghost && p.idle > GHOST_IDLE) p.ghost = { t: 0, path: ghostPath(p) };
+      if (p.ghost) {
+        var g = p.ghost; g.t += dt;
+        if (g.t > 0) {
+          var path = g.path, u = Math.min(1, g.t / 2.4), e = u < .5 ? 2 * u * u : 1 - Math.pow(-2 * u + 2, 2) / 2;
+          var k = e * (path.length - 1), i = Math.floor(k), a = path[i], b = path[Math.min(path.length - 1, i + 1)];
+          var x = a.x + (b.x - a.x) * (k - i), y = a.y + (b.y - a.y) * (k - i);
+          if (g.px != null) {
+            wipe(p, g.px, g.py, x, y, WIPE_R * 1.15);
+            p.ptr.vx = (x - g.px) / dt * .3; p.ptr.vy = (y - g.py) / dt * .3;
+          }
+          p.ptr.x = x; p.ptr.y = y; p.ptr.has = true; p.ptr.live = performance.now();
+          g.px = x; g.py = y;
+          if (u >= 1) { p.ghost = null; p.idle = 0; }
+        }
+      }
+
+      // Beads.
+      var P = p.ptr, live = performance.now() - P.live < 140, bs = p.beads, W = p.W, H = p.H, t = p.t;
+      var speed = Math.hypot(P.vx, P.vy);
+      for (var n = 0; n < bs.length; n++) {
+        var d = bs[n];
+        if (!d.run) {
+          d.r += d.grow * dt * (0.6 + 0.4 * Math.sin(t * .9 + d.ph));
+          if (d.r > RUN_R && Math.random() < dt * 0.8) d.run = true;
+        } else {
+          // Stick-slip: runners lurch, pause, lurch again, and wander a little.
+          if (d.stick > 0) { d.stick -= dt; d.vy *= 0.8; }
+          else {
+            d.vy = Math.min(d.vy + 420 * dt * (d.r / 6), 70 + d.r * 22);
+            if (Math.random() < dt * 0.9) d.stick = 0.15 + Math.random() * 0.5;
+          }
+          d.y += d.vy * dt;
+          d.x += Math.sin(t * 2.3 + d.ph) * 6 * dt + Math.sin(t * 5.1 + d.ph * 2) * 3 * dt;
+          wipe(p, d.x, d.y - d.r, d.x, d.y, d.r * 1.1);
+          d.r = Math.max(2.2, d.r - dt * 0.18);
+          if (Math.random() < dt * 1.2 && bs.length < p.n + 12) { var tr = bead(p, d.y - d.r * 2); tr.x = d.x; tr.r = 0.9 + Math.random(); tr.grow = 0.02; bs.push(tr); }
+          // Swallow beads in the way.
+          for (var m = 0; m < bs.length; m++) {
+            var o = bs[m];
+            if (o === d || o.run) continue;
+            var dx = o.x - d.x, dy = o.y - d.y;
+            if (dx * dx + dy * dy < (d.r + o.r) * (d.r + o.r)) {
+              d.r = Math.min(9, Math.sqrt(d.r * d.r + o.r * o.r)); o.dead = true;
+            }
+          }
+          if (d.y - d.r > H) d.dead = true;
+        }
+        // Pointer push with spring back.
+        if (live) {
+          var px = d.x + d.ox - P.x, py = d.y + d.oy - P.y, dd = px * px + py * py;
+          if (dd < PUSH_R * PUSH_R) {
+            var dist = Math.sqrt(dd) || 1, f = (1 - dist / PUSH_R);
+            d.vx += (px / dist * PUSH * f + P.vx * .5 * f) * dt;
+            d.vy2 += (py / dist * PUSH * f + P.vy * .5 * f) * dt;
+            if (speed > BREAK_SPEED && f > .35 && !d.run) { d.run = true; d.r = Math.max(d.r, RUN_R + .4); d.x += d.ox; d.y += d.oy; d.ox = d.oy = 0; }
+          }
+        }
+        d.vx += (-SPRING * d.ox - DAMP * d.vx) * dt; d.vy2 += (-SPRING * d.oy - DAMP * d.vy2) * dt;
+        d.ox += d.vx * dt; d.oy += d.vy2 * dt;
+      }
+      // Drop the dead, condense new beads to keep the glass populated.
+      for (var q = bs.length - 1; q >= 0; q--) if (bs[q].dead) bs.splice(q, 1);
+      while (bs.length < p.n) bs.push(bead(p, Math.random() * H * .85));
+    }
+
+    function draw(p) {
+      var c = p.ctx, w = p.cv.width, h = p.cv.height, s = DPR, t = p.t;
+      c.setTransform(1, 0, 0, 1, 0, 0);
+      c.globalCompositeOperation = 'source-over'; c.globalAlpha = 1;
+      c.drawImage(p.scene, 0, 0);
+      // Fogged layer: blurred scene + milky tint + drifting steam, cut by the fog mask.
+      var x = p.tmp.getContext('2d');
+      x.globalCompositeOperation = 'source-over'; x.globalAlpha = 1;
+      x.imageSmoothingQuality = 'high';
+      x.drawImage(p.blur, 0, 0, w, h);
+      x.fillStyle = 'rgba(228,238,243,.62)'; x.fillRect(0, 0, w, h);
+      // Steam tile (drawn at 1/3 scale) tiled at full size and slid by layered sines.
+      var sw = p.swirl, ts = t * SWIRL_SPEED, TW = sw.width * 3 * s, TH = sw.height * 3 * s;
+      var ox = (Math.sin(ts * .23) * .6 + Math.sin(ts * .51 + 1.3) * .3) * TW;
+      var oy = (Math.sin(ts * .19 + 2) * .5 + Math.sin(ts * .37) * .3) * TH;
+      var sx = ((ox % TW) + TW) % TW - TW, sy = ((oy % TH) + TH) % TH - TH;
+      for (var i = sx; i < w; i += TW) for (var j = sy; j < h; j += TH) x.drawImage(sw, i, j, TW, TH);
+      x.globalCompositeOperation = 'destination-in';
+      x.drawImage(p.fog, 0, 0, w, h);
+      c.globalAlpha = p.fogMax;
+      c.drawImage(p.tmp, 0, 0);
+      c.globalAlpha = 1;
+      // Beads: each a tiny upside-down lens of the scene, shaded.
+      var bs = p.beads;
+      for (var n = 0; n < bs.length; n++) {
+        var d = bs[n], bx = (d.x + d.ox) * s, by = (d.y + d.oy) * s, r = d.r * s;
+        if (r < 1.2) continue;
+        c.save();
+        c.beginPath(); c.arc(bx, by, r, 0, 6.2832); c.clip();
+        c.translate(bx, by); c.scale(1, -1);
+        c.drawImage(p.scene, bx - r * 4, by - r * 4, r * 8, r * 8, -r, -r, r * 2, r * 2);
+        c.restore();
+        c.drawImage(beadShade, bx - r * 1.08, by - r * 1.08, r * 2.16, r * 2.16);
+      }
+    }
+
+    function frame(now) {
+      var dt = Math.min(.05, (now - (last || now)) / 1000); last = now;
+      var any = false;
+      for (var i = 0; i < panes.length; i++) if (panes[i].on) { any = true; update(panes[i], dt); draw(panes[i]); }
+      raf = any ? requestAnimationFrame(frame) : 0;
+      if (!any) last = 0;
+    }
+
+    panes.forEach(function (p) { draw(p); });
+    if (still) {
+      // Reduced motion: one still frame; wiping still works, nothing drifts on its own.
+      panes.forEach(function (p) { p.ghost = null; });
+      return;
+    }
+
+    // Start whatever is already on screen without waiting for the observer.
+    panes.forEach(function (p) { var r = p.el.getBoundingClientRect(); p.on = r.top < innerHeight && r.bottom > 0; });
+    if (panes.some(function (p) { return p.on; })) raf = requestAnimationFrame(frame);
+
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          var p = panes.filter(function (m) { return m.el === e.target; })[0];
+          p.on = e.isIntersecting;
+          if (p.on && p.kind === 'logo' && !p.seen) { p.seen = true; p.ghost = { t: .3, path: ghostPath(p) }; }
+        });
+        if (!raf) raf = requestAnimationFrame(frame);
+      }, { rootMargin: '60px' });
+      panes.forEach(function (p) { io.observe(p.el); });
+    } else {
+      panes.forEach(function (p) { p.on = true; });
+      raf = requestAnimationFrame(frame);
+    }
+
+    if (!logo.complete) logo.addEventListener('load', function () { panes.forEach(function (p) { if (p.kind === 'logo') paintScene(p); }); });
+
+    var rt;
+    window.addEventListener('resize', function () {
+      clearTimeout(rt);
+      rt = setTimeout(function () {
+        panes.forEach(function (p) { if (p.el.clientWidth !== p.W || p.el.clientHeight !== p.H) { setup(p); draw(p); } });
+      }, 150);
+    });
+  })();
+
+  // ---------- Water seams ----------
+  // Each line rides one shared slow swell plus its own ripple; the lower band's
+  // fill follows the middle line so the colour edge moves with the water.
+  // Same motion as Ellie's other pitch sites.
+  (function () {
+    var seams = [].map.call(document.querySelectorAll('svg.ripple'), function (svg) {
+      return { fill: svg.querySelector('.ripple-fill'), lines: svg.querySelectorAll('path:not(.ripple-fill)'), svg: svg, seed: Math.random() * 6.283, on: false };
+    });
+    if (!seams.length) return;
+    var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var BASE = [8, 14, 20], STEP = 20, TAU = Math.PI * 2, SPEED = 2;
+    var raf = 0, live = 0;
+    function wave(i, x, t, seed) {
+      var lag = i * 0.55 + seed;
+      var swell = Math.sin(x * TAU / 300 - t * 0.55 + lag) * (0.8 + 0.25 * Math.sin(t * 0.31 + x / 520 + seed))
+                + 0.45 * Math.sin(x * TAU / 470 + t * 0.27 + lag * 0.6);
+      var own = Math.sin(x * TAU / (150 + i * 35) + t * (0.7 + i * 0.18) + seed * (i + 1)) * (0.5 + 0.3 * Math.sin(t * 0.43 + i * 2.1));
+      return BASE[i] + 1.9 * swell + 0.9 * own;
+    }
+    function line(i, t, seed) {
+      var px = 0, py = wave(i, 0, t, seed), d = 'M0 ' + py.toFixed(2);
+      for (var x = STEP; x <= 1200; x += STEP) {
+        var y = wave(i, x, t, seed);
+        d += ' Q' + px + ' ' + py.toFixed(2) + ' ' + (px + x) / 2 + ' ' + ((py + y) / 2).toFixed(2);
+        px = x; py = y;
+      }
+      return d + ' L1200 ' + py.toFixed(2);
+    }
+    function draw(s, t) {
+      for (var i = 0; i < s.lines.length && i < 3; i++) {
+        var d = line(i, t, s.seed);
+        s.lines[i].setAttribute('d', d);
+        if (i === 1 && s.fill) s.fill.setAttribute('d', d + ' V29 H0 Z');
+      }
+    }
+    function frame(now) {
+      var t = now / 1000 * SPEED;
+      seams.forEach(function (s) { if (s.on) draw(s, t); });
+      raf = live ? requestAnimationFrame(frame) : 0;
+    }
+    var t0 = performance.now() / 1000 * SPEED;
+    seams.forEach(function (s) { draw(s, t0); });
+    if (still) return;
+    if (!('IntersectionObserver' in window)) { seams.forEach(function (s) { s.on = true; }); live = seams.length; raf = requestAnimationFrame(frame); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        var s = seams.filter(function (m) { return m.svg === e.target; })[0];
+        if (s.on !== e.isIntersecting) { s.on = e.isIntersecting; live += s.on ? 1 : -1; }
+      });
+      if (live && !raf) raf = requestAnimationFrame(frame);
+    });
+    seams.forEach(function (s) { io.observe(s.svg); });
+  })();
+
+  // ---------- Sticky bar steps aside while the hero's own buttons are on screen ----------
+  (function () {
+    var bar = document.getElementById('sticky');
+    var hero = document.getElementById('hero-actions');
+    if (!bar || !hero) return;
+    if (!('IntersectionObserver' in window)) { bar.classList.remove('is-hidden'); return; }
+    new IntersectionObserver(function (entries) {
+      bar.classList.toggle('is-hidden', entries[0].isIntersecting);
+    }).observe(hero);
+  })();
+</script>
+</body>
+</html>
