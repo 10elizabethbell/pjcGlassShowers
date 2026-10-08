@@ -15,6 +15,7 @@ colors:
   sash-white: "#f3f6f7"
   water-blue: "#7fb6dc"
   water-pale: "#bfe0f0"
+  sky-warm: "#f6dcc0"
 typography:
   display:
     fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif"
@@ -45,6 +46,44 @@ typography:
     fontWeight: 800
     lineHeight: 1.1
     letterSpacing: "0.01em"
+  display-wide:
+    fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif"
+    fontSize: "clamp(3.4rem, 5.2vw, 4.8rem)"
+    fontWeight: 900
+    lineHeight: 0.98
+    letterSpacing: "-0.02em"
+  subhead:
+    fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif"
+    fontSize: "clamp(1.7rem, 7vw, 2.6rem)"
+    fontWeight: 900
+    lineHeight: 0.98
+    letterSpacing: "-0.02em"
+  title-lg:
+    fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif"
+    fontSize: "clamp(1.45rem, 6.4vw, 2rem)"
+    fontWeight: 900
+    lineHeight: 0.98
+    letterSpacing: "-0.02em"
+  lead:
+    fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif"
+    fontSize: "clamp(17px, 4.6vw, 20px)"
+    fontWeight: 400
+    lineHeight: 1.55
+  body-sm:
+    fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif"
+    fontSize: "16px"
+    fontWeight: 400
+    lineHeight: 1.55
+  caption:
+    fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif"
+    fontSize: "15px"
+    fontWeight: 400
+    lineHeight: 1.55
+  micro:
+    fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif"
+    fontSize: "14px"
+    fontWeight: 700
+    lineHeight: 1.4
 rounded:
   sm: "6px"
   pane: "8px"
@@ -139,7 +178,7 @@ Two grounds (dark slate, pale glass), one loud red, and a pair of water blues th
 - **Sash White** (`sash-white`): the window frame and four-lite sash bars around every pane. Slightly cool, so it reads as painted frame rather than paper.
 
 ### Water (material only)
-- **Water Blue** (`water-blue`) and **Water Pale** (`water-pale`): seam stroke lines and the pane's pre-canvas sky fallback. They never colour text, buttons or section grounds.
+- **Water Blue** (`water-blue`) and **Water Pale** (`water-pale`): seam stroke lines and the pane's pre-canvas sky fallback. **Sky Warm** (`sky-warm`) is the horizon at the bottom of the panes' sky, material-only like the water blues. They never colour text, buttons or section grounds.
 
 ### Named Rules
 **The One Loud Colour Rule.** Logo red is the only saturated colour on the page. Water blues stay inside seams and panes; nothing else competes with red.
