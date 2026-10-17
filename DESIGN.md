@@ -243,7 +243,7 @@ Big, blunt, thumb-sized.
 - **Shape:** gently rounded (10px), 56px minimum height, 2px border, icon + label with a 10px gap, never wraps.
 - **Primary (Call):** logo-red fill, white text, button-lift shadow. Hover deepens to logo-red-deep (fill and border).
 - **Line (Text):** transparent with an 85% white 2px border on slate; on glass sections the border and text become ink. Hover adds an 8% white (or 6% ink) wash.
-- **States:** colour transitions .2s ease-out; press scales to .98 (.15s). Hover and focus share one 3px focus-blue outline at 3px offset on every button, link and service row (blue so it stands apart from the red buttons).
+- **States:** colour transitions .2s ease-out; press scales to .98 (.15s). Hover and focus share one 3px focus-blue outline at 3px offset on buttons and links (blue so it stands apart from the red buttons). Service rows get no hover outline: only their arrow disc turns red (Ellie, 2026-10-17); keyboard focus still shows the blue ring.
 - **Pairing:** always Call (primary) then Text (line). Every SMS link opens with a pre-filled message naming the service; one flag in the script turns every text link into a call link if the number is a landline.
 
 ### Top Bar
