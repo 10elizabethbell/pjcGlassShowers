@@ -15,6 +15,8 @@ colors:
   sash-white: "#f3f6f7"
   water-blue: "#7fb6dc"
   water-pale: "#bfe0f0"
+  focus-blue: "#2d8fd8"
+  facebook-mark: "#8cc3ec"
   sky-warm: "#f6dcc0"
 typography:
   display:
@@ -163,11 +165,11 @@ Density is phone-first and tradesperson-direct: big heavy italic uppercase headi
 Two grounds (dark slate, pale glass), one loud red, and a pair of water blues that only appear inside the material.
 
 ### Primary
-- **Logo Red** (`logo-red`): the PJC logo red. Primary buttons, the red half of split headlines, step numbers, the service-row cue on press, focus rings, text selection, caret, the call-pill phone icon, the "FULL SERVICE" words behind the hero fog.
+- **Logo Red** (`logo-red`): the PJC logo red. Primary buttons, the red half of split headlines, step numbers, the service-row cue on press, text selection, caret, the call-pill phone icon, the "FULL SERVICE" words behind the hero fog.
 - **Deep Logo Red** (`logo-red-deep`): hover and border state of the primary button only.
 
 ### Neutral
-- **Slate** (`slate`): page ground, hero, footer, theme-color, sticky bar tint (at 94% over a 10px backdrop blur). Charcoal-blue, never black.
+- **Slate** (`slate`): page ground, hero, footer, theme-color. Charcoal-blue, never black.
 - **Slate 2** (`slate-2`): the "who it's for" and "how it works" band, one step lighter than the page.
 - **Slate 3** (`slate-3`): raised fill on slate (the top-bar call pill) and the dark stroke in seams leaving a glass section.
 - **Window Glass** (`window-glass`): ground of light sections (services, close).
@@ -206,15 +208,15 @@ Two grounds (dark slate, pale glass), one loud red, and a pair of water blues th
 
 ## Layout
 
-Phone-first base, single column, with a 16px gutter inside a centred container (max 1180px). The phone body reserves `76px + safe-area` at the bottom for the sticky bar.
+Phone-first base, single column, with a 16px gutter inside a centred container (max 1180px).
 
 - **Base (under 760px):** everything stacks. Hero is text then pane (16:10). Buttons are full-width, stacked 10px apart. Service list is one column of rows; audience rows and steps stack.
-- **760px+:** gutter widens to 32px; sticky bar disappears and the body padding is removed. Button pairs sit side by side at their natural widths, left-aligned. Service list becomes two columns (48px column gap); audience rows and steps become three columns (32px gap). The Text button swaps "a photo" for the full number.
+- **760px+:** gutter widens to 32px; Button pairs sit side by side at their natural widths, left-aligned. Service list becomes two columns (48px column gap); audience rows and steps become three columns (32px gap). The Text button swaps "a photo" for the full number.
 - **1000px+:** hero becomes a two-column grid (1.15fr text / 1fr pane, 56px gap, vertically centred) and the pane goes 5:4. The close becomes pane-left / copy-right (1.1fr / 1fr, 56px gap). Section padding grows to 64px top / 72px bottom.
 
 Rhythm: 10px between paired actions, 18px row padding, 20 to 22px between a heading block and its content, 34 to 44px section padding on phones.
 
-**The Thumb Reach Rule.** On phones a Call button is always on screen: the hero buttons first, then the sticky bar, which steps aside (translateY(110%)) whenever the hero buttons are visible so the action is never doubled.
+**The Thumb Reach Rule.** The phone number sits in the header's top-right corner as a 44px tap-to-call pill, once per screen. Under the headline there is one 56px full-width Text button; no Call button there and nothing fixed to the bottom of the screen.
 
 ## Elevation & Depth
 
@@ -225,9 +227,8 @@ Depth comes from tonal steps (slate, slate-2, slate-3) and from the glass itself
 - **Sash bar** (`0 3px 8px rgba(4,12,20,.25)`): the muntins casting onto the glass.
 - **Button lift** (`0 8px 18px -10px rgba(4,12,20,.55)`): primary red button only.
 - **Disc lift** (`0 6px 14px -8px rgba(20,32,41,.5)` / `0 8px 16px -10px rgba(4,12,20,.6)`): service cue disc and step numbers.
-- **Bar edge** (`0 -10px 24px -14px rgba(4,12,20,.9)`): sticky bar, cast upward.
 
-**The Forward Objects Only Rule.** Only things that sit in front of the wall (pane, buttons, discs, sticky bar) get a shadow. Sections, rows and text never do.
+**The Forward Objects Only Rule.** Only things that sit in front of the wall (pane, buttons, discs) get a shadow. Sections, rows and text never do.
 
 ## Shapes
 
@@ -242,7 +243,7 @@ Big, blunt, thumb-sized.
 - **Shape:** gently rounded (10px), 56px minimum height, 2px border, icon + label with a 10px gap, never wraps.
 - **Primary (Call):** logo-red fill, white text, button-lift shadow. Hover deepens to logo-red-deep (fill and border).
 - **Line (Text):** transparent with an 85% white 2px border on slate; on glass sections the border and text become ink. Hover adds an 8% white (or 6% ink) wash.
-- **States:** colour transitions .2s ease-out; press scales to .98 (.15s). Focus is the global 3px logo-red outline at 3px offset.
+- **States:** colour transitions .2s ease-out; press scales to .98 (.15s). Hover and focus share one 3px focus-blue outline at 3px offset on every button, link and service row (blue so it stands apart from the red buttons).
 - **Pairing:** always Call (primary) then Text (line). Every SMS link opens with a pre-filled message naming the service; one flag in the script turns every text link into a call link if the number is a landline.
 
 ### Top Bar
@@ -257,9 +258,6 @@ The services menu as a ruled list where every row is a link that opens a pre-fil
 ### Numbered Steps
 Three steps, each a 48px red disc with the counter in 900 italic 22px white, beside a Title and mist body.
 
-### Sticky Phone Bar (phones only)
-Fixed to the bottom, slate at 94% with a 10px backdrop blur, safe-area padded. Call takes the remaining width, Text takes 34%. Slides in and out with `transform .35s cubic-bezier(.16, 1, .3, 1)`. Hidden at 760px+.
-
 ### Icons
 Inline line SVGs on a 24 grid at 22px, 2.2 stroke, round caps and joins, `currentColor`. Phone, message bubble, pointing hand, right arrow. No icon fonts, no filled glyphs.
 
@@ -270,7 +268,7 @@ Layers, drawn per frame:
 - **Scene:** painted once per size; a blurred copy is made by downscaling to 1/4 and then 1/10 size.
 - **Fog:** the blurred scene + a milky tint (rgba(228,238,243,.62)) + a drifting **steam swirl** (26 soft white blobs on a tiled 1/3-scale texture, slid by layered sines), cut by a quarter-resolution **fog mask** that regrows toward full at 10% per second.
 - **Beads:** water drops that grow, and past a run radius break loose and slide down with stick-slip lurches and a slight wander, swallowing beads in their path, clearing a trail in the fog and shedding small trailing beads. Each bead is a tiny inverted lens of the scene with a dark refracted rim and a soft low highlight; no hairline glints.
-- **Pointer:** finger or mouse wipes the fog with a soft round brush (24px radius phone, 32px desktop) interpolated along the stroke, and pushes nearby beads, which spring back with a wobble; a fast swipe knocks a bead loose to run. Touch listeners are passive and `touch-action: pan-y`, so vertical scrolling is never blocked.
+- **Pointer:** finger or mouse wipes the fog with a soft round brush (24px radius phone, 32px desktop) interpolated along the stroke, and pushes nearby beads, which spring back with a wobble; a fast swipe knocks a bead loose to run. Touch listeners are passive. The hero pane is `touch-action: none` so a finger wipes up, down and sideways (and `html` has `overscroll-behavior-y: none` so it never pulls to refresh); the close pane keeps `pan-y`.
 - **Ghost wipe:** after 9 idle seconds (and once on load, and again on the logo pane's first reveal), an S-shaped swipe clears a band across the glass to show it is wipeable.
 - **Hint:** a slate 78% pill at the bottom of the hero pane ("pointing hand" + short label) that fades out (.6s) on first touch.
 
@@ -290,7 +288,8 @@ A 28px full-width SVG between every slate/glass change, in place of a hard edge.
 ### Do:
 - **Do** keep logo red as the only saturated colour; use it for the primary action and one headline clause.
 - **Do** set every heading in the system stack at 900 italic uppercase, -0.02em, 0.98 line-height.
-- **Do** pair Call (solid red) with Text (outline), Call first, 56px tall.
+- **Do** keep the phone number in the header's top-right corner, once per screen; the hero and close each carry one red Text button, 56px tall; no Call button under the headline, no sticky bar.
+- **Do** put the Facebook button (ink, white label, blue mark) where people look for proof of the work, and again in the footer.
 - **Do** join slate and glass sections with a water seam, never a straight edge.
 - **Do** frame any new glass surface as a pane: sash-white 9px frame, four-lite sash cross, canvas engine with a still CSS fog fallback.
 - **Do** run all ambient motion through the shared loops, pause it off screen, and give it a still reduced-motion frame.
