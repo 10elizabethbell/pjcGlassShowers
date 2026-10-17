@@ -1,6 +1,6 @@
 # PJC Glass & Showers — handoff at ~60%
 
-**Live file:** index.html · **Repo:** https://github.com/10elizabethbell/pjcGlassShowers · **Built:** 2026-10-08 from Muse brief (run 2026-10-08, FB group flyer post)
+**Live:** https://10elizabethbell.github.io/pjcGlassShowers/ · **File:** index.html · **Repo:** https://github.com/10elizabethbell/pjcGlassShowers · **Built:** 2026-10-08 from Muse brief (run 2026-10-08, FB group flyer post)
 
 ## What's built
 - **World:** fogged window glass. Charcoal-blue ground (`#18222d`, not black), PJC logo red `#e2231a` as the only loud colour, pale glass `#e8f0f3` for light sections, white four-lite sash lifted from the window icon in their logo.
@@ -21,7 +21,7 @@
 - **Headline** "Clear glass. Working windows." is mine.
 
 ## Placeholders and gaps
-- **Link preview:** `og:image` points at `assets/og.jpg` on raw.githubusercontent.com (logo on slate, 1200×630). Swap to the final host's URL once the site is deployed, and add `og:url`.
+- **Live:** https://10elizabethbell.github.io/pjcGlassShowers/ (GitHub Pages from `main`, root). `og:image` and `og:url` point there; change both if it moves to the owner's own domain.
 - No work photos, no before/afters, no reviews: the page shows none and says nothing about them. Photos wanted.
 - No hours, owner name, email, address, towns served, years in business.
 - Name: Facebook page says "PJC Glass & Showers", logo says "GLASS AND SHOWERS". Used "&" in text.
